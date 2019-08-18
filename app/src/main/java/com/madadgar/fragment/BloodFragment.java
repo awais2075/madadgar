@@ -199,6 +199,7 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
             }
         }
         textView_bloodQuantity.setText(totalBloodCount + " Bottle(s) Available");
+        progressDialog.hide();
         if (!list.isEmpty()) {
             textView_noData.setVisibility(View.GONE);
         } else {
@@ -227,7 +228,6 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
 
     @Override
     public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
-        progressDialog.show();
         fireBaseDb.view(databaseReference.child(item), Blood.class, this);
     }
 
@@ -274,9 +274,9 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
             currentLocation = location.getLatitude() + ":" + location.getLongitude();
             String currentLocationAddress = getAddressFromLatLng(location.getLatitude(), location.getLongitude());
             textView_bloodRequestLocation.setText(currentLocationAddress);
-        } else {
-            Util.showToast(getContext(), "Can't get Location, Turn on your GPS");
-        }
+        }else {
+                Util.showToast(getContext(), "Can't get Location, Turn on your GPS");
+            }
     }
 
     private void setUpProgressDialog() {
