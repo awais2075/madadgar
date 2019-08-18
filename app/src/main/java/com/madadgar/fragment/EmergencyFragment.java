@@ -436,9 +436,13 @@ public class EmergencyFragment extends BaseFragment implements FirebaseResponse,
 
     @Override
     public void onSuccess(Location location) {
-        currentLocation = location.getLatitude() + ":" + location.getLongitude();
-        String currentLocationAddress = getAddressFromLatLng(location.getLatitude(), location.getLongitude());
-        textView_emergencyLocation.setText(currentLocationAddress);
+if (location != null) {
+    currentLocation = location.getLatitude() + ":" + location.getLongitude();
+    String currentLocationAddress = getAddressFromLatLng(location.getLatitude(), location.getLongitude());
+    textView_emergencyLocation.setText(currentLocationAddress);
+} else {
+    Util.showToast(getContext(), "Can't get Location, Turn on your GPS");
+}
     }
 
     @Override

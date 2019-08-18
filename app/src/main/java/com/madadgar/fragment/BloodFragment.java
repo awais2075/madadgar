@@ -272,10 +272,13 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
 
     @Override
     public void onSuccess(Location location) {
-        currentLocation = location.getLatitude() + ":" + location.getLongitude();
-        String currentLocationAddress = getAddressFromLatLng(location.getLatitude(), location.getLongitude());
-        textView_bloodRequestLocation.setText(currentLocationAddress);
-
+        if (location != null) {
+            currentLocation = location.getLatitude() + ":" + location.getLongitude();
+            String currentLocationAddress = getAddressFromLatLng(location.getLatitude(), location.getLongitude());
+            textView_bloodRequestLocation.setText(currentLocationAddress);
+        } else {
+            Util.showToast(getContext(), "Can't get Location, Turn on your GPS");
+        }
     }
 
     private void setUpProgressDialog() {
