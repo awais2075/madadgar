@@ -215,7 +215,7 @@ public class EmergencyFragment extends BaseFragment implements FirebaseResponse,
         String emergencyType = (String) spinner_emergencyType.getSelectedItem();
         String emergencyDetails = editText_emergencyInfo.getText().toString();
         String emergencyPhotoUrl = emergencyId;
-        String emergencyStatus = "Pending";
+        String emergencyStatus = "PENDING";
         String emergencyLocationAddress = textView_emergencyLocation.getText().toString();
         String emergencyLocation = currentLocation;
         Date emergencyReportingTime = new Date();
@@ -436,13 +436,13 @@ public class EmergencyFragment extends BaseFragment implements FirebaseResponse,
 
     @Override
     public void onSuccess(Location location) {
-if (location != null) {
-    currentLocation = location.getLatitude() + ":" + location.getLongitude();
-    String currentLocationAddress = getAddressFromLatLng(location.getLatitude(), location.getLongitude());
-    textView_emergencyLocation.setText(currentLocationAddress);
-} else {
-    Util.showToast(getContext(), "Can't get Location, Turn on your GPS");
-}
+        if (location != null) {
+            currentLocation = location.getLatitude() + ":" + location.getLongitude();
+            String currentLocationAddress = getAddressFromLatLng(location.getLatitude(), location.getLongitude());
+            textView_emergencyLocation.setText(currentLocationAddress);
+        } else {
+            Util.showToast(getContext(), "Can't get Location, Turn on your GPS");
+        }
     }
 
     @Override
