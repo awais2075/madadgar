@@ -80,9 +80,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/BloodFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/BloodFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/EmergencyFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/EmergencyFragment.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,16 +112,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/BloodFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="278" column="9" selection-start-line="278" selection-start-column="9" selection-end-line="278" selection-end-column="9" />
+            <state relative-caret-position="47">
+              <caret line="201" selection-start-line="201" selection-end-line="201" />
               <folding>
-                <element signature="e#8273#8274#0" expanded="true" />
+                <element signature="e#8211#8212#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/BaseFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="76">
@@ -130,11 +130,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/EmergencyFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="440" selection-start-line="440" selection-end-line="440" />
+            <state relative-caret-position="103">
+              <caret line="149" selection-start-line="149" selection-end-line="149" />
             </state>
           </provider>
         </entry>
@@ -167,10 +167,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>submit</find>
-      <find>option_menu</find>
-      <find>onItem</find>
-      <find>updateEmergen</find>
       <find>updateSt</find>
       <find>spinner</find>
       <find>firebaseDB</find>
@@ -197,6 +193,10 @@
       <find>isValid</find>
       <find>onSuccess</find>
       <find>onSuccess(</find>
+      <find>Pendin</find>
+      <find>progressDialog.hi</find>
+      <find>progressDialog.hide</find>
+      <find>progressDialog.sh</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -256,9 +256,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_blood.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_request_blood.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_blood.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/EmergencyFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/BloodFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/BaseFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/BloodFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/EmergencyFragment.java" />
       </list>
     </option>
   </component>
@@ -550,7 +550,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/EmergencyFragment.java</url>
-          <line>208</line>
+          <line>205</line>
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
@@ -705,27 +705,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/BaseFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="83" column="23" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/BloodFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="278" column="9" selection-start-line="278" selection-start-column="9" selection-end-line="278" selection-end-column="9" />
+        <state relative-caret-position="47">
+          <caret line="201" selection-start-line="201" selection-end-line="201" />
           <folding>
-            <element signature="e#8273#8274#0" expanded="true" />
+            <element signature="e#8211#8212#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/EmergencyFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="440" selection-start-line="440" selection-end-line="440" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/madadgar/fragment/BaseFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="83" column="23" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
+        <state relative-caret-position="103">
+          <caret line="149" selection-start-line="149" selection-end-line="149" />
         </state>
       </provider>
     </entry>

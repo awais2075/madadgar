@@ -111,7 +111,6 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
         recyclerView.addItemDecoration(new MyDividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL, 16));
 
 
-        progressDialog.show();
         fireBaseDb.view(databaseReference.child("A+"), Blood.class, this);
 
         spinner.setItems(bloodGroupArray);
@@ -200,7 +199,6 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
             }
         }
         textView_bloodQuantity.setText(totalBloodCount + " Bottle(s) Available");
-        progressDialog.hide();
         if (!list.isEmpty()) {
             textView_noData.setVisibility(View.GONE);
         } else {

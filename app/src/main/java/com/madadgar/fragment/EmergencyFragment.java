@@ -145,17 +145,14 @@ public class EmergencyFragment extends BaseFragment implements FirebaseResponse,
         }
 
         if (user.getUserType() == UserType.User) {
-            progressDialog.show();
             fireBaseDb.view(databaseReference.orderByChild("userId").equalTo(user.getUserId()), Emergency.class, this);
         } else {
-            progressDialog.show();
             fireBaseDb.view(databaseReference, Emergency.class, this);
         }
     }
 
     @Override
     public void onSuccess(List list) {
-        progressDialog.hide();
         if (!list.isEmpty()) {
             textView_noData.setVisibility(View.GONE);
         } else {
