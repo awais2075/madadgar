@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_8sdp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/_5sdp">
+
+
+        <TextView
+            android:id="@+id/textView_userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:text="Alex Hales"
+            android:textColor="#4c4c4c"
+            android:textSize="@dimen/_12ssp" />
+
+        <TextView
+            android:id="@+id/textView_bloodRequestLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_userName"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:text="Dhoke Sayedan Road Rawalpindi"
+            android:textSize="@dimen/_9sdp" />
+
+        <TextView
+            android:id="@+id/textView_bloodQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_bloodRequestLocation"
+            android:layout_centerHorizontal="true"
+            android:text="Donate 10 Bottles"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_18ssp" />
+
+        <TextView
+            android:id="@+id/textView_bloodRequestDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/textView_userName"
+            android:layout_alignParentRight="true"
+            android:paddingRight="@dimen/_5sdp"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/stat_notify_more"
+            android:text="12 Aug, 2019 09:37:21 PM"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/_8ssp" />
+    </RelativeLayout>
+
+
+</LinearLayout>

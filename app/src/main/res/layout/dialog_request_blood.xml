@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:theme="@style/AppTheme">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+
+            <TextView
+                android:id="@+id/textView_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/donate_request_blood"
+                android:textColor="@color/colorAccent"
+                android:textSize="22sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_bloodGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_48sdp"
+                android:layout_marginLeft="@dimen/_48sdp"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_marginEnd="@dimen/_48sdp"
+                android:layout_marginRight="@dimen/_48sdp"
+                android:text="A+"
+                android:textAlignment="center"
+                android:textSize="@dimen/_18ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/textView_heading"
+                app:layout_constraintStart_toStartOf="@+id/textView_heading"
+                app:layout_constraintTop_toBottomOf="@+id/textView_heading" />
+
+            <Spinner
+                android:id="@+id/spinner_requestType"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_48sdp"
+                android:layout_marginLeft="@dimen/_48sdp"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_marginEnd="@dimen/_48sdp"
+                android:layout_marginRight="@dimen/_48sdp"
+                android:entries="@array/bloodRequestTypeArray"
+                app:layout_constraintLeft_toLeftOf="@id/textView_bloodGroup"
+                app:layout_constraintRight_toRightOf="@id/textView_bloodGroup"
+                app:layout_constraintTop_toBottomOf="@id/textView_bloodGroup" />
+
+            <TextView
+                android:id="@+id/textView_bloodRequestLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_48sdp"
+                android:layout_marginLeft="@dimen/_48sdp"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_marginEnd="@dimen/_48sdp"
+                android:layout_marginRight="@dimen/_48sdp"
+                android:background="@drawable/drawable_edit_text"
+                android:hint="@string/current_location"
+                app:layout_constraintLeft_toLeftOf="@id/spinner_requestType"
+                app:layout_constraintRight_toRightOf="@id/spinner_requestType"
+                app:layout_constraintTop_toBottomOf="@id/spinner_requestType" />
+
+            <EditText
+                android:id="@+id/editText_bloodQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_48sdp"
+                android:layout_marginLeft="@dimen/_48sdp"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_marginEnd="@dimen/_48sdp"
+                android:layout_marginRight="@dimen/_48sdp"
+                android:background="@drawable/drawable_edit_text"
+                android:hint="@string/blood_quantity"
+                android:inputType="number"
+                app:layout_constraintLeft_toLeftOf="@id/textView_bloodRequestLocation"
+                app:layout_constraintRight_toRightOf="@id/textView_bloodRequestLocation"
+                app:layout_constraintTop_toBottomOf="@id/textView_bloodRequestLocation" />
+
+
+            <EditText
+                android:id="@+id/editText_bloodRequestDetails"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/drawable_edit_text"
+                android:hint="@string/details"
+                app:layout_constraintLeft_toLeftOf="@id/editText_bloodQuantity"
+                app:layout_constraintRight_toRightOf="@id/editText_bloodQuantity"
+                app:layout_constraintTop_toBottomOf="@id/editText_bloodQuantity" />
+
+            <TextView
+                android:id="@+id/textView_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/add"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintLeft_toLeftOf="@id/editText_bloodRequestDetails"
+                app:layout_constraintRight_toLeftOf="@id/textView_cancel"
+                app:layout_constraintTop_toBottomOf="@id/editText_bloodRequestDetails" />
+
+            <TextView
+                android:id="@+id/textView_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/cancel"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintLeft_toRightOf="@id/textView_add"
+                app:layout_constraintRight_toRightOf="@id/editText_bloodRequestDetails"
+                app:layout_constraintTop_toBottomOf="@id/editText_bloodRequestDetails" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

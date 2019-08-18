@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context=".blood.BDLogin"
+    android:background="@android:color/background_light"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView30"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        app:srcCompat="@drawable/madadgar" />
+
+    <TextView
+        android:id="@+id/textView100"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Madadgar"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/textView110"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:text="Blood Donation"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="Email:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView70"
+        android:textColor="@color/colorSecondary"
+        android:textSize="18sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/emailLBD"
+        android:hint="abc@mail.com" />
+
+    <TextView
+        android:text="Password:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView80"
+        android:textSize="18sp"
+        android:textColor="@color/colorSecondary" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/passwordLBD"
+        android:hint="**********" />
+
+    <TextView
+        android:text="Select Type:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView79"
+        android:textColor="@color/colorSecondary"
+        android:textSize="18sp" />
+
+
+    <Spinner
+        android:id="@+id/bdtypes"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:entries="@array/bdtype" />
+
+    <Button
+        android:text="Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainLoginBD"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentLeft="true"
+        android:textColor="@android:color/background_light"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:text="Don't have an account, Register Here."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerLabelBD"
+        android:layout_marginTop="10dp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center" />
+
+</LinearLayout>

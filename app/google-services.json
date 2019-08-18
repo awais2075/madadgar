@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "399028293522",
+    "firebase_url": "https://madadgar-be060.firebaseio.com",
+    "project_id": "madadgar-be060",
+    "storage_bucket": "madadgar-be060.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:399028293522:android:9417a7560af674af",
+        "android_client_info": {
+          "package_name": "pk.app.madadgar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "399028293522-l1rtv3hfrrtkh3h2s20d40vu28p3cq5v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pk.app.madadgar",
+            "certificate_hash": "bdb50be397717cb68d254a9d4579dfc7b1e1674b"
+          }
+        },
+        {
+          "client_id": "399028293522-j6eirjb6fmshc78sba5fobao7vovl20b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoeIf4XykFLFARm1BTxdAmZSrFxOwzTAY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "399028293522-j6eirjb6fmshc78sba5fobao7vovl20b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

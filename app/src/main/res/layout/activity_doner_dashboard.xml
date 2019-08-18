@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context=".blood.doner.DonerDashboard"
+    android:background="@android:color/background_light"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView30"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        app:srcCompat="@drawable/madadgar" />
+
+    <TextView
+        android:id="@+id/textView100"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Madadgar"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/textView110"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:text="Doner Dashboard"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="Blood Request: B_POSITIVE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/requestIDDoner"
+        android:textColor="@color/colorSecondary"
+        android:textSize="18sp"
+        android:visibility="visible"
+        />
+
+    <TextView
+        android:id="@+id/descriptionDoner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:maxLines="20"
+        android:singleLine="false"
+        android:text="Description:"
+        android:textColor="@color/colorSecondary"
+        android:textSize="18sp"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/textView80d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Enter Contact Details:"
+        android:textColor="@color/colorSecondary"
+        android:textSize="18sp"
+        android:visibility="visible"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/contactDetails"
+        android:visibility="visible"/>
+
+    <Button
+        android:text="Respond"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/respondRRRR"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentLeft="true"
+        android:textColor="@android:color/background_light"
+        android:layout_marginTop="10dp"
+        android:visibility="visible"/>
+
+    <Button
+        android:id="@+id/CancelDD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorAccent"
+        android:text="Cancel"
+        android:textColor="@android:color/background_light"
+        android:visibility="visible"/>
+
+</LinearLayout>
