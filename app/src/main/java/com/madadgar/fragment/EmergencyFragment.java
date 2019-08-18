@@ -180,7 +180,7 @@ public class EmergencyFragment extends BaseFragment implements FirebaseResponse,
                 showCustomDialog(R.layout.dialog_report_emergency);
                 break;
             case R.id.textView_add:
-                if (!isValidInput()) {
+                if (isValidInput()) {
                     progressDialog.show();
                     submitEmergencyCase();
                     customDialog.dismiss();
