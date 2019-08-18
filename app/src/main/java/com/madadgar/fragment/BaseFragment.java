@@ -61,6 +61,7 @@ public abstract class BaseFragment extends Fragment implements OnSuccessListener
         intent.setData(uri);
         startActivity(intent);
     }
+
     protected String getAddressFromLatLng(double latitude, double longitude) {
         Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
 
@@ -70,12 +71,16 @@ public abstract class BaseFragment extends Fragment implements OnSuccessListener
         } catch (IOException e) {
             Util.showToast(getContext(), e.getMessage());
         }
-        String address = addressList.get(0).getAddressLine(0);
-        String city = addressList.get(0).getLocality();
-        String state = addressList.get(0).getAdminArea();
-        String zip = addressList.get(0).getPostalCode();
-        String country = addressList.get(0).getCountryName();
+        String address;
+        if (!addressList.isEmpty()) {
+            address = addressList.get(0).getAddressLine(0);
+            String city = addressList.get(0).getLocality();
+            String state = addressList.get(0).getAdminArea();
+            String zip = addressList.get(0).getPostalCode();
+            String country = addressList.get(0).getCountryName();
+        } else {
+            address = "Can't get Address";
+        }
         return address;
     }
-
 }
