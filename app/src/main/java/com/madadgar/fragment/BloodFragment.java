@@ -253,7 +253,6 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
         textView_add = view.findViewById(R.id.textView_add);
         textView_cancel = view.findViewById(R.id.textView_cancel);
 
-
         textView_bloodGroup.setText(bloodGroupArray[spinner.getSelectedIndex()]);
         textView_bloodRequestLocation.setOnClickListener(this);
 
@@ -261,7 +260,6 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
         textView_add.setOnClickListener(this);
         textView_cancel.setOnClickListener(this);
     }
-
 
     @Override
     public void onFailure(@NonNull Exception e) {
@@ -285,5 +283,4 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
     }
-
 }
