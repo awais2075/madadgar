@@ -48,7 +48,6 @@ import java.util.List;
  */
 public class BloodFragment extends BaseFragment implements View.OnClickListener, FirebaseResponse, ItemClickListener<Blood>, MaterialSpinner.OnItemSelectedListener<String> {
 
-
     private FireBaseDb fireBaseDb;
     private User user;
     private DatabaseReference databaseReference;
@@ -71,7 +70,6 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
     private AlertDialog customDialog;
 
     private Permission permission;
-    private int totalBloodCount = 0;
 
     public BloodFragment() {
         // Required empty public constructor
@@ -82,7 +80,6 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
         this.fireBaseDb = fireBaseDb;
         this.user = user;
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -106,12 +103,12 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
         fab = view.findViewById(R.id.fab);
         textView_noData = view.findViewById(R.id.textView_noData);
         recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new MyDividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL, 16));
+        recyclerView.addItemDecoration(new MyDividerItemDecoration(view.getContext(), LinearLayoutManager.VERTICAL, 16));
 
 
-        fireBaseDb.view(databaseReference.child("A+"), Blood.class, this);
+        fireBaseDb.view(databaseReference.child(user.getUserBloodGroup()), Blood.class, this);
 
         spinner.setItems(bloodGroupArray);
         spinner.setOnItemSelectedListener(this);
@@ -119,6 +116,8 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
 
         if (user.getUserType() == UserType.User) {
             fab.show();
+            spinner.setVisibility(View.GONE);
+
         }
 
     }
@@ -132,12 +131,8 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
                 break;
             case R.id.textView_add:
                 if (isValidInput()) {
-                    if (spinner_requestType.getSelectedItemPosition() == 0 && totalBloodCount - Integer.parseInt(editText_bloodQuantity.getText().toString()) < 0) {
-                        Util.showToast(getContext(), "Current quantity is not according to your need");
-                    } else {
-                        uploadBloodRequest();
-                        customDialog.dismiss();
-                    }
+                    uploadBloodRequest();
+                    customDialog.dismiss();
                 } else {
                     Util.showToast(getContext(), "Input Fields shouldn't be empty");
                 }
@@ -157,7 +152,7 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
     }
 
     private boolean isValidInput() {
-        return !(TextUtils.isEmpty(editText_bloodQuantity.getText().toString()) && TextUtils.isEmpty(textView_bloodRequestLocation.getText().toString()) && TextUtils.isEmpty(editText_bloodRequestDetails.getText().toString()));
+        return !TextUtils.isEmpty(editText_bloodQuantity.getText().toString()) && !TextUtils.isEmpty(textView_bloodRequestLocation.getText().toString()) && !TextUtils.isEmpty(editText_bloodRequestDetails.getText().toString());
     }
 
     private void uploadBloodRequest() {
@@ -191,14 +186,6 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
     @Override
     public void onSuccess(List list) {
 
-        totalBloodCount = 0;
-        for (int i = 0; i < list.size(); i++) {
-            Blood b = (Blood) list.get(i);
-            if (b.getBloodRequestType().equals("Donate Blood")) {
-                totalBloodCount += b.getQuantity();
-            }
-        }
-        textView_bloodQuantity.setText(totalBloodCount + " Bottle(s) Available");
         progressDialog.hide();
         if (!list.isEmpty()) {
             textView_noData.setVisibility(View.GONE);
@@ -272,9 +259,9 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
             currentLocation = location.getLatitude() + ":" + location.getLongitude();
             String currentLocationAddress = getAddressFromLatLng(location.getLatitude(), location.getLongitude());
             textView_bloodRequestLocation.setText(currentLocationAddress);
-        }else {
-                Util.showToast(getContext(), "Can't get Location, Turn on your GPS");
-            }
+        } else {
+            Util.showToast(getContext(), "Can't get Location, Turn on your GPS");
+        }
     }
 
     private void setUpProgressDialog() {

@@ -51,6 +51,7 @@ import com.madadgar._interface.FirebaseResponse;
 import com.madadgar._interface.ItemClickListener;
 import com.madadgar.activity.MapActivity;
 import com.madadgar.adapter.RecyclerViewAdapter;
+import com.madadgar.enums.EmergencyStatus;
 import com.madadgar.enums.UserType;
 import com.madadgar.firebase.FireBaseDb;
 import com.madadgar.model.Emergency;
@@ -203,7 +204,7 @@ public class EmergencyFragment extends BaseFragment implements FirebaseResponse,
     }
 
     private boolean isValidInput() {
-        return !(TextUtils.isEmpty(textView_emergencyLocation.getText().toString()) && TextUtils.isEmpty(editText_emergencyInfo.getText().toString()) && imageUri == null);
+        return !TextUtils.isEmpty(textView_emergencyLocation.getText().toString()) && !TextUtils.isEmpty(editText_emergencyInfo.getText().toString()) && imageUri != null;
     }
 
 
@@ -215,8 +216,10 @@ public class EmergencyFragment extends BaseFragment implements FirebaseResponse,
         String emergencyStatus = "PENDING";
         String emergencyLocationAddress = textView_emergencyLocation.getText().toString();
         String emergencyLocation = currentLocation;
+        String staffLocation = "";
+        String staffLocationAddress = "";
         Date emergencyReportingTime = new Date();
-        emergency = new Emergency(emergencyId, emergencyType, emergencyDetails, emergencyPhotoUrl, emergencyStatus, emergencyLocation, emergencyLocationAddress, emergencyReportingTime, user.getUserId());
+        emergency = new Emergency(emergencyId, emergencyType, emergencyDetails, emergencyPhotoUrl, EmergencyStatus.PENDING, emergencyLocation, emergencyLocationAddress, staffLocation, staffLocationAddress, emergencyReportingTime, user.getUserId());
 
         StorageReference storageReference = firebaseStorage.getReference().child("images/" + emergency.getEmergencyPhotoUrl());
         fileStorage.uploadFile(storageReference, imageUri);
@@ -286,13 +289,17 @@ public class EmergencyFragment extends BaseFragment implements FirebaseResponse,
 
     @Override
     public void onItemClicked(Emergency em) {
-
-        startActivity(new Intent(getContext(), MapActivity.class).putExtra("emergency", em));
+        emergency = em;
+        if (user.getUserType() == UserType.Staff && em.getEmergencyStatus() == EmergencyStatus.PENDING) {
+            getCurrentLocation();
+        } else {
+            startActivity(new Intent(getContext(), MapActivity.class).putExtra("emergency", em));
+        }
     }
 
     @Override
     public void onItemLongClicked(View view, final Emergency em) {
-        if (user.getUserType() != UserType.User) {
+        if (user.getUserType() == UserType.Staff && em.getEmergencyStatus() != EmergencyStatus.PENDING) {
             PopupMenu popup = new PopupMenu(getContext(), view);
             popup.getMenuInflater().inflate(R.menu.option_menu, popup.getMenu());
 
@@ -314,14 +321,15 @@ public class EmergencyFragment extends BaseFragment implements FirebaseResponse,
     }
 
     private void updateEmergencyStatusDialog(final Emergency em) {
-        final CharSequence[] statusValues = {"PENDING", "RESOLVED"};
+        final EmergencyStatus[] emergencyStatusArray = new EmergencyStatus[]{EmergencyStatus.PROCESSING, EmergencyStatus.COMPLETED};
+        final String[] statusArray = new String[]{"PROCESSING", "COMPLETED"};
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Update Emergency Status");
-        builder.setSingleChoiceItems(statusValues, -1, new DialogInterface.OnClickListener() {
+        builder.setSingleChoiceItems(statusArray, -1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Util.showToast(getContext(), statusValues[which] + "");
-                em.setEmergencyStatus(statusValues[which] + "");
+                Util.showToast(getContext(), emergencyStatusArray[which] + "");
+                em.setEmergencyStatus(emergencyStatusArray[which]);
                 fireBaseDb.update(databaseReference, em.getEmergencyId(), em);
                 dialog.dismiss();
             }
@@ -436,7 +444,17 @@ public class EmergencyFragment extends BaseFragment implements FirebaseResponse,
         if (location != null) {
             currentLocation = location.getLatitude() + ":" + location.getLongitude();
             String currentLocationAddress = getAddressFromLatLng(location.getLatitude(), location.getLongitude());
-            textView_emergencyLocation.setText(currentLocationAddress);
+            if (user.getUserType() == UserType.User) {
+                textView_emergencyLocation.setText(currentLocationAddress);
+            } else {
+                Util.showToast(getContext(), "Getting Staff Location");
+                emergency.setEmergencyStatus(EmergencyStatus.PROCESSING);
+                emergency.setStaffLocation(currentLocation);
+                emergency.setStaffLocationAddress(currentLocationAddress);
+                fireBaseDb.update(databaseReference, emergency.getEmergencyId(), emergency);
+                startActivity(new Intent(getContext(), MapActivity.class).putExtra("emergency", emergency));
+
+            }
         } else {
             Util.showToast(getContext(), "Can't get Location, Turn on your GPS");
         }

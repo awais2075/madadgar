@@ -1,5 +1,7 @@
 package com.madadgar.model;
 
+import com.madadgar.enums.EmergencyStatus;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -8,15 +10,17 @@ public class Emergency implements Serializable {
     private String emergencyType;
     private String emergencyDetails;
     private String emergencyPhotoUrl;
-    private String emergencyStatus;
+    private EmergencyStatus emergencyStatus;
     private String emergencyLocation;
     private String emergencyLocationAddress;
+    private String staffLocation;
+    private String staffLocationAddress;
     private Date emergencyReportingTime;
     private String userId;
     public Emergency() {
     }
 
-    public Emergency(String emergencyId, String emergencyType, String emergencyDetails, String emergencyPhotoUrl, String emergencyStatus, String emergencyLocation, String emergencyLocationAddress, Date emergencyReportingTime, String userId) {
+    public Emergency(String emergencyId, String emergencyType, String emergencyDetails, String emergencyPhotoUrl, EmergencyStatus emergencyStatus, String emergencyLocation, String emergencyLocationAddress, String staffLocation, String staffLocationAddress, Date emergencyReportingTime, String userId) {
         this.emergencyId = emergencyId;
         this.emergencyType = emergencyType;
         this.emergencyDetails = emergencyDetails;
@@ -24,6 +28,8 @@ public class Emergency implements Serializable {
         this.emergencyStatus = emergencyStatus;
         this.emergencyLocation = emergencyLocation;
         this.emergencyLocationAddress = emergencyLocationAddress;
+        this.staffLocation = staffLocation;
+        this.staffLocationAddress = staffLocationAddress;
         this.emergencyReportingTime = emergencyReportingTime;
         this.userId = userId;
     }
@@ -60,11 +66,27 @@ public class Emergency implements Serializable {
         this.emergencyPhotoUrl = emergencyPhotoUrl;
     }
 
-    public String getEmergencyStatus() {
+    public EmergencyStatus getEmergencyStatus() {
         return emergencyStatus;
     }
 
-    public void setEmergencyStatus(String emergencyStatus) {
+    public String getStaffLocation() {
+        return staffLocation;
+    }
+
+    public void setStaffLocation(String staffLocation) {
+        this.staffLocation = staffLocation;
+    }
+
+    public String getStaffLocationAddress() {
+        return staffLocationAddress;
+    }
+
+    public void setStaffLocationAddress(String staffLocationAddress) {
+        this.staffLocationAddress = staffLocationAddress;
+    }
+
+    public void setEmergencyStatus(EmergencyStatus emergencyStatus) {
         this.emergencyStatus = emergencyStatus;
     }
 

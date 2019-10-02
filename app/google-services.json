@@ -13,33 +13,43 @@
           "package_name": "pk.app.madadgar"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "399028293522-l1rtv3hfrrtkh3h2s20d40vu28p3cq5v.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "pk.app.madadgar",
-            "certificate_hash": "bdb50be397717cb68d254a9d4579dfc7b1e1674b"
-          }
-        },
-        {
-          "client_id": "399028293522-j6eirjb6fmshc78sba5fobao7vovl20b.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBoeIf4XykFLFARm1BTxdAmZSrFxOwzTAY"
+          "current_key": "AIzaSyDffr_UY9mB7DyHq5dLXHUQXST8XoOjEf0"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "399028293522-j6eirjb6fmshc78sba5fobao7vovl20b.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:399028293522:android:a224b5093e557183a2bb4b",
+        "android_client_info": {
+          "package_name": "pk.com.app.madadgar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "399028293522-du53a28kbt06cir9tr05cq9vuomvb2nj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pk.com.app.madadgar",
+            "certificate_hash": "bdb50be397717cb68d254a9d4579dfc7b1e1674b"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDffr_UY9mB7DyHq5dLXHUQXST8XoOjEf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
         }
       }
     }

@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.madadgar.R;
 import com.madadgar.adapter.ViewPagerAdapter;
@@ -29,7 +28,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private TabLayout tabLayout;
 
     /*Tabs Title Array*/
-    private String[] tabTitleList = new String[]{"Emergency", "Blood"};
+    private String[] tabTitleList = new String[]{"Emergency", "Blood", "Map"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +108,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 toolbar.setTitle(tabTitleList[position]);
                 break;
             case 1:
+                toolbar.setTitle(tabTitleList[position]);
+                break;
+            case 2:
                 toolbar.setTitle(tabTitleList[position]);
                 break;
         }

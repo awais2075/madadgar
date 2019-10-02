@@ -52,6 +52,7 @@ public abstract class BaseFragment extends Fragment implements OnSuccessListener
 
         locationClient.getLastLocation().addOnSuccessListener(this);
         locationClient.getLastLocation().addOnFailureListener(this);
+
     }
 
     protected void openAppSettings() {

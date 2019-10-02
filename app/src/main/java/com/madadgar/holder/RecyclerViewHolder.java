@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.madadgar.R;
 import com.madadgar._interface.ItemClickListener;
+import com.madadgar.enums.EmergencyStatus;
 import com.madadgar.model.Blood;
 import com.madadgar.model.Emergency;
 
@@ -52,11 +53,8 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.
             textView_emergencyReportingTime.setText(reportingTime);
             Glide.with(itemView.getContext()).load(((Emergency) model).getEmergencyPhotoUrl()).into(imageView_emergencyImage);
 
-            if (((Emergency) model).getEmergencyStatus().equals("PENDING")) {
-                textView_emergencyStatus.setText("PENDING");
-                textView_emergencyStatus.setTextColor(itemView.getContext().getColor(R.color.colorAccent));
-            } else {
-                textView_emergencyStatus.setText("RESOLVED");
+            textView_emergencyStatus.setText(((Emergency) model).getEmergencyStatus().toString());
+            if (((Emergency) model).getEmergencyStatus() == EmergencyStatus.COMPLETED) {
                 textView_emergencyStatus.setTextColor(itemView.getContext().getColor(R.color.colorPrimary));
             }
         } else if (model instanceof Blood) {

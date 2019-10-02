@@ -37,7 +37,6 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         initViews();
 
         databaseReference = FirebaseDatabase.getInstance().getReference("User");
-        progressDialog.show();
         onSuccess(auth.getCurrentUser());
     }
 
@@ -70,6 +69,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
     @Override
     public void onSuccess(User user) {
         if (user != null) {
+            progressDialog.show();
             fireBaseDb.view(databaseReference.orderByChild("userId").equalTo(user.getUserId()), User.class);
         } else {
             progressDialog.hide();
@@ -138,4 +138,5 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
                 break;
         }
     }
+
 }

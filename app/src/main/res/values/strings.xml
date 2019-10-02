@@ -51,4 +51,7 @@
     <string name="details">Enter Details</string>
     <string name="donate_request_blood">Donate/Request Blood</string>
     <string name="blood_quantity">Blood Quantity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
